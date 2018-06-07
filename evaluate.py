@@ -10,12 +10,12 @@ import ImageRecords
 import BatchDataset as BD
 IMG_MEAN = np.array((104.00698793,116.66876762,122.67891434), dtype=np.float32)
 
-DATA_DIRECTORY = '/home/zhouzhilong/HED-BSDS'
-DATA_LIST_PATH = '/home/zhouzhilong/HED-BSDS/test.lst'
+DATA_DIRECTORY = './dataset/HED-BSDS'
+DATA_LIST_PATH = './dataset/HED-BSDS/test.lst'
 IGNORE_LABEL = 2
 NUM_CLASSES = 1
 NUM_STEPS = 200 # Number of images in the validation set.
-RESTORE_FROM = '/home/zhouzhilong/deeplab-coutour/snapshots/model.ckpt-bsds-6e-06-40000'
+RESTORE_FROM = ''
 MODEL_NAME = 'bsds-mm2018'
 def get_arguments():
     """Parse all the arguments provided from the CLI.

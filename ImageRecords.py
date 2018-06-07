@@ -73,8 +73,5 @@ def get_records_BSDS_test(data_dir):
     return result_records
 
 
-if __name__ == '__main__':
-    a = get_records_NYU_RGB("/home/zhouzhilong/NYUD", "test")
-    print(a)
 
 
