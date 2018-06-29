@@ -10,7 +10,7 @@ import tensorflow as tf
 import numpy as np
 import ImageRecords
 import BatchDataset as BD
-from deeplab_resnet import CumulativeNets
+from model import CumulativeNets
 os.environ["CUDA_VISIBLE_DEVICES"] = "5"
 
 IMG_MEAN = np.array((104.00698793,116.66876762,122.67891434), dtype=np.float32)
