@@ -19,7 +19,7 @@ The datasets that we use are same  as HED and RCF, if we want to download the da
 
 -----------------------
 
-###Requirement
+### Requirement
 The code has been tested successfully on Ubuntu 14.04 with CUDA 8.0.	And the code is based on Tensorflow1.4, besides,  the numpy and scipy are also necessary.
 
 -----------------------
