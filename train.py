@@ -29,7 +29,7 @@ SAVE_NUM_IMAGES = 2
 SAVE_PRED_EVERY = 4000
 SNAPSHOT_DIR = './snapshots/'
 WEIGHT_DECAY = 0.0005
-MODEL_NAME = 'bsds-mm2018-threshold=0.2-channel=1'
+MODEL_NAME = 'bsds-mm2018'
 
 
 def get_arguments():

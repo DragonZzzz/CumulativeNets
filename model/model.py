@@ -485,22 +485,22 @@ class CumulativeNets(Network):
 
             # SRU_conv1_up
             (self.feed('conv1_up')
-            .relu(name='rcu1_conv1_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_conv1_conv1')
-            .relu(name='rcu1_conv1_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_conv1_conv2')
+                 .relu(name='rcu1_conv1_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_conv1_conv1')
+                 .relu(name='rcu1_conv1_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_conv1_conv2')
             )
 
             (self.feed('conv1_up_dsn',
                         'rcu1_conv1_conv2')
-            .add(name='rcu1_conv1'))
+                 .add(name='rcu1_conv1'))
 
 
             (self.feed('rcu1_conv1')
-            .relu(name='rcu2_conv1_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_conv1_conv1')
-            .relu(name='rcu2_conv1_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_conv1_conv2'))
+                 .relu(name='rcu2_conv1_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_conv1_conv1')
+                 .relu(name='rcu2_conv1_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_conv1_conv2'))
 
             (self.feed('rcu1_conv1',
                         'rcu2_conv1_conv2')
@@ -544,21 +544,21 @@ class CumulativeNets(Network):
 
             # SRU_res3b3
             (self.feed('res3b3_up')
-            .relu(name='rcu1_res3b3_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res3b3_conv1')
-            .relu(name='rcu1_res3b3_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res3b3_conv2')
+                 .relu(name='rcu1_res3b3_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res3b3_conv1')
+                 .relu(name='rcu1_res3b3_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res3b3_conv2')
             )
 
             (self.feed('res3b3_up_conv',
                         'rcu1_res3b3_conv2')
-            .add(name='rcu1_res3b3'))
+                 .add(name='rcu1_res3b3'))
 
             (self.feed('rcu1_res3b3')
-            .relu(name='rcu2_res3b3_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_res3b3_conv1')
-            .relu(name='rcu2_res3b3_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_res3b3_conv2'))
+                 .relu(name='rcu2_res3b3_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_res3b3_conv1')
+                 .relu(name='rcu2_res3b3_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_res3b3_conv2'))
 
             (self.feed('rcu1_res3b3',
                         'rcu2_res3b3_conv2')
@@ -639,38 +639,38 @@ class CumulativeNets(Network):
             # CRA 4
             # SRU_refine3
             (self.feed('refine3_out')
-            .relu(name='rcu1_refine3_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine3_conv1')
-            .relu(name='rcu1_refine3_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine3_conv2')
+                 .relu(name='rcu1_refine3_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine3_conv1')
+                 .relu(name='rcu1_refine3_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine3_conv2')
             )
 
             (self.feed('multi_fusion3_attention',
                         'rcu1_refine3_conv2')
-            .add(name='rcu1_refine3'))
+                 .add(name='rcu1_refine3'))
 
             (self.feed('rcu1_refine3')
-            .relu(name='rcu2_refine3_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine3_conv1')
-            .relu(name='rcu2_refine3_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine3_conv2'))
+                 .relu(name='rcu2_refine3_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine3_conv1')
+                 .relu(name='rcu2_refine3_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine3_conv2'))
 
             (self.feed('rcu1_refine3',
                         'rcu2_refine3_conv2')
-            .add(name='rcu2_refine3')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion_refine3'))
+                 .add(name='rcu2_refine3')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion_refine3'))
 
             # SRU_res5c
             (self.feed('res5c_up')
-            .relu(name='rcu1_res5c_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res5c_conv1')
-            .relu(name='rcu1_res5c_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res5c_conv2')
+                 .relu(name='rcu1_res5c_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res5c_conv1')
+                 .relu(name='rcu1_res5c_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_res5c_conv2')
             )
 
             (self.feed('res5c_up_conv',
                         'rcu1_res5c_conv2')
-            .add(name='rcu1_res5c'))
+                 .add(name='rcu1_res5c'))
 
             (self.feed('rcu1_res5c')
                   .relu(name='rcu2_res5c_relu1')
@@ -696,61 +696,61 @@ class CumulativeNets(Network):
             # CRA 5
             # SRU_refine4
             (self.feed('refine4_out')
-            .relu(name='rcu1_refine4_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine4_conv1')
-            .relu(name='rcu1_refine4_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine4_conv2')
+                 .relu(name='rcu1_refine4_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine4_conv1')
+                 .relu(name='rcu1_refine4_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_refine4_conv2')
             )
 
             (self.feed('multi_fusion4_out',
                         'rcu1_refine4_conv2')
-            .add(name='rcu1_refine4'))
+                 .add(name='rcu1_refine4'))
 
             (self.feed('rcu1_refine4')
-            .relu(name='rcu2_refine4_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine4_conv1')
-            .relu(name='rcu2_refine4_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine4_conv2'))
+                 .relu(name='rcu2_refine4_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine4_conv1')
+                 .relu(name='rcu2_refine4_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_refine4_conv2'))
 
             (self.feed('rcu1_refine4',
                         'rcu2_refine4_conv2')
-            .add(name='rcu2_refine4')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion_refine4'))
+                 .add(name='rcu2_refine4')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion_refine4'))
 
             # SRU_fc1_voc12_up
             (self.feed('fc1_voc12_up')
-            .relu(name='rcu1_fc1_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_fc1_conv1')
-            .relu(name='rcu1_fc1_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_fc1_conv2')
+                 .relu(name='rcu1_fc1_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_fc1_conv1')
+                 .relu(name='rcu1_fc1_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu1_fc1_conv2')
             )
 
             (self.feed('fc1_voc12_up_conv',
                         'rcu1_fc1_conv2')
-            .add(name='rcu1_fc1'))
+                 .add(name='rcu1_fc1'))
 
 
             (self.feed('rcu1_fc1')
-            .relu(name='rcu2_fc1_relu1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_fc1_conv1')
-            .relu(name='rcu2_fc1_relu2')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_fc1_conv2'))
+                 .relu(name='rcu2_fc1_relu1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_fc1_conv1')
+                 .relu(name='rcu2_fc1_relu2')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='rcu2_fc1_conv2'))
 
             (self.feed('rcu1_fc1',
                         'rcu2_fc1_conv2')
-            .add(name='rcu2_fc1')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion_fc1'))
+                 .add(name='rcu2_fc1')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion_fc1'))
 
             # Multi-Fusion & Attention
             (self.feed('multi_fusion_refine4',
                         'multi_fusion_fc1')
-            .add(name='multi_fusion5_out')
-            .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion5_out2')
-            .softmax(name='multi_fusion5_softmax')
-            .multiply(self.layers['multi_fusion5_out'], name='multi_fusion5_attention')
-            .conv(1, 1, 21, 1, 1, biased=False, relu=False, name='refine5_conv1')
-            .conv(1, 1, 1, 1, 1, biased=False, relu=False, name='refine5_out')
-            .sigmoid(name='refine5_sigmoid'))
+                 .add(name='multi_fusion5_out')
+                 .conv(3, 3, 256, 1, 1, biased=False, relu=False, name='multi_fusion5_out2')
+                 .softmax(name='multi_fusion5_softmax')
+                 .multiply(self.layers['multi_fusion5_out'], name='multi_fusion5_attention')
+                 .conv(1, 1, 21, 1, 1, biased=False, relu=False, name='refine5_conv1')
+                 .conv(1, 1, 1, 1, 1, biased=False, relu=False, name='refine5_out')
+                 .sigmoid(name='refine5_sigmoid'))
 
 
 
